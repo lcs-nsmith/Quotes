@@ -9,7 +9,7 @@ import SwiftUI
 
 struct QuoteView: View {
     // MARK: Stored Properties
-    @State var currentQuote: Quote = Quote(quoteText: "Doot doola doot doo", quoteAuthor: "Nardwuar", senderName: "", quoteLink: "")
+    @State var currentQuote: Quote = Quote(quoteText: "Doot doola doot doo", quoteAuthor: "Nardwuar")
     
     // MARK: Computed Properties
     var body: some View {

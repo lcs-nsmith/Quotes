@@ -13,6 +13,4 @@ import System
 struct Quote: Decodable {
     let quoteText: String
     let quoteAuthor: String
-    let senderName: String
-    let quoteLink: String
 }
