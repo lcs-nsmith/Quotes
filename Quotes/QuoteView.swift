@@ -11,6 +11,10 @@ struct QuoteView: View {
     // MARK: Stored Properties
     @State var currentQuote: Quote = Quote(quoteText: "Doot doola doot doo", quoteAuthor: "Nardwuar")
     
+    @State var favourites: [Quote] = []
+    
+    @State var currentQuoteAddedToFavourites: Bool = false
+    
     // MARK: Computed Properties
     var body: some View {
         
@@ -47,7 +51,17 @@ struct QuoteView: View {
                     Image(systemName: "heart.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .foregroundColor(.gray)
+                        .foregroundColor(currentQuoteAddedToFavourites == true ? .red : .gray)
+                        .onTapGesture {
+                            // Only adds to list if its not already there
+                            if currentQuoteAddedToFavourites == false {
+                                
+                                favourites.append(currentQuote)
+                                
+                                //Record that we have marked this as favourite
+                                currentQuoteAddedToFavourites = true
+                            }
+                        }
                         .frame(width: 45, height: 45)
                 })
                     .buttonStyle(.plain)
@@ -65,11 +79,9 @@ struct QuoteView: View {
                     .buttonStyle(.borderedProminent)
                     .tint(.gray)
                 
-                List {
-                    Text("He that respects himself is safe from others; he wears a coat of mail that none can pierce.")
-                    Text("What you are is what you have been. What you’ll be is what you do now.")
-                    Text("A smile is a light in the window of your face to show your heart is at home.")
-                }
+                List (favourites, id: \.self ) { currentFavourite in
+                        Text(currentFavourite.quoteText)
+                    }
                 
                 Spacer()
                 
@@ -117,6 +129,7 @@ struct QuoteView: View {
             // populates
             print(error)
         }
+        currentQuoteAddedToFavourites = false
     }
 }
 

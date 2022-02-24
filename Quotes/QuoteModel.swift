@@ -9,8 +9,8 @@
 import Foundation
 import System
 
-// The Dadjoke structure confomrs to the Decodable Protocol. This means that we want Swift to be able to take a JSON object and 'decode' into an instance of this structure.
-struct Quote: Decodable {
+
+struct Quote: Decodable, Hashable {
     let quoteText: String
     let quoteAuthor: String
 }
