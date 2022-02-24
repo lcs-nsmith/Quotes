@@ -94,6 +94,11 @@ struct QuoteView: View {
             .task {
                 await loadNewQuote()
             }
+            .onChange(of: scenePhase) { newPhase in 
+                if newPhase == .background {
+                    persistFavourites()
+                }
+            }
             .padding()
             .navigationTitle("Forismatic Quotes")
         }
@@ -135,6 +140,24 @@ struct QuoteView: View {
             print(error)
         }
         currentQuoteAddedToFavourites = false
+    }
+    
+    func persistFavourites() {
+        
+        let filename = getDocumentDirectory()
+            .appendingPathComponent(savedFavouritesLabel)
+        
+        do {
+            let encoder = JSONEncoder()
+            
+            encoder.outputFormatting = .prettyPrinted
+            
+            let data = try encoder.encode(favourites)
+            
+            try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("error saving data")
+        }
     }
 }
 
