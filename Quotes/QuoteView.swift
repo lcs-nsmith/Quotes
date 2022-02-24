@@ -81,6 +81,8 @@ struct QuoteView: View {
                 
                 List (favourites, id: \.self ) { currentFavourite in
                         Text(currentFavourite.quoteText)
+                        Text(currentFavourite.quoteAuthor)
+                        .font(.footnote)
                     }
                 
                 Spacer()
