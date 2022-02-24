@@ -11,6 +11,8 @@ struct QuoteView: View {
     // MARK: Stored Properties
     @State var currentQuote: Quote = Quote(quoteText: "Doot doola doot doo", quoteAuthor: "Nardwuar")
     
+    @Environment (\.scenePhase) var scenePhase
+    
     @State var favourites: [Quote] = []
     
     @State var currentQuoteAddedToFavourites: Bool = false
@@ -95,6 +97,7 @@ struct QuoteView: View {
             .padding()
             .navigationTitle("Forismatic Quotes")
         }
+        
     }
     
     func loadNewQuote() async {
