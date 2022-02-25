@@ -93,8 +93,9 @@ struct QuoteView: View {
             // When the app opens, get a new joke from the web service
             .task {
                 await loadNewQuote()
+                await loadFavourites()
             }
-            .onChange(of: scenePhase) { newPhase in 
+            .onChange(of: scenePhase) { newPhase in
                 if newPhase == .background {
                     persistFavourites()
                 }
@@ -157,6 +158,19 @@ struct QuoteView: View {
             try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
         } catch {
             print("error saving data")
+        }
+    }
+    
+    func loadFavourites() async {
+        let filename = getDocumentDirectory()
+            .appendingPathComponent(savedFavouritesLabel)
+        
+        do {
+            let data = try  Data(contentsOf: filename)
+            
+            favourites = try JSONDecoder().decode([Quote].self, from: data)
+        } catch {
+            print("error fetching stored data")
         }
     }
 }
