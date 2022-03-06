@@ -21,11 +21,11 @@ struct QuoteView: View {
     var body: some View {
         
         ZStack {
-//            Color(.systemGray6)
-//                .ignoresSafeArea()
-            
-            Color(.black)
+            Color(.systemGray6)
                 .ignoresSafeArea()
+//
+//            Color(.black)
+//                .ignoresSafeArea()
             
             VStack {
                 
@@ -80,6 +80,12 @@ struct QuoteView: View {
                 })
                     .buttonStyle(.borderedProminent)
                     .tint(.gray)
+                
+                NavigationLink(destination: {
+                    FavouritesListView()
+                }, label: {
+                   Text("Favourites List")
+                })
                 
                 List (favourites, id: \.self ) { currentFavourite in
                         Text(currentFavourite.quoteText)
@@ -181,7 +187,6 @@ struct QuoteView_Previews: PreviewProvider {
             NavigationView {
                 QuoteView()
             }
-            .preferredColorScheme(.dark)
         }
     }
 }

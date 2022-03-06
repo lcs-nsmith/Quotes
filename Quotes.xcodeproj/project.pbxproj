@@ -13,6 +13,7 @@
 		4A57C0A427C590FE00375EC1 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57C0A327C590FE00375EC1 /* QuoteModel.swift */; };
 		4A57C0A627C5911500375EC1 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57C0A527C5911500375EC1 /* QuoteView.swift */; };
 		4A7765EF27C847C20000F531 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7765EE27C847C20000F531 /* Shared.swift */; };
+		4AD1064027D4F9BE0001817F /* FavouritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD1063F27D4F9BE0001817F /* FavouritesListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4A57C0A327C590FE00375EC1 /* QuoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		4A57C0A527C5911500375EC1 /* QuoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		4A7765EE27C847C20000F531 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		4AD1063F27D4F9BE0001817F /* FavouritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				4A57C0A527C5911500375EC1 /* QuoteView.swift */,
+				4AD1063F27D4F9BE0001817F /* FavouritesListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A57C0A427C590FE00375EC1 /* QuoteModel.swift in Sources */,
+				4AD1064027D4F9BE0001817F /* FavouritesListView.swift in Sources */,
 				4A57C09627C590CF00375EC1 /* QuotesApp.swift in Sources */,
 				4A7765EF27C847C20000F531 /* Shared.swift in Sources */,
 				4A57C0A627C5911500375EC1 /* QuoteView.swift in Sources */,
